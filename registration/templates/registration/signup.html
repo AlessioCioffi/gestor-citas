@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% block title %}<title>Sign up</title>{% endblock %}
+
+{% block content %}
+{% if 'ok' in request.GET %}
+<div>
+    <p style="margin-top: 40px;">Usuario registrado correctamente</p>
+    <p>Ahora puedes <a href="{% url 'login' %}">acceder</a>.</p>
+</div>
+<h5 style="margin-top: 30px;"><a href="{% url 'home' %}">Volver a inicio</a></h5>
+{% else %}
+<h4>Registrándote</h4>
+<div class="form-container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.email.label_tag }}</td>
+                <td>{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password1.label_tag }}</td>
+                <td>{{ form.password1 }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password2.label_tag }}</td>
+                <td>{{ form.password2 }}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Confirmar">
+    </form>
+</div>
+
+<h5><a href="{% url 'login' %}">Atrás</a></h5>
+
+<p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Ingresa</a></p>
+{% endif %}
+{% endblock %}

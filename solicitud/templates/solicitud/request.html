@@ -1,0 +1,18 @@
+{% extends "core/base.html" %} {% block content %}
+{% block title %}<title>Cita previa</title>{% endblock %}
+
+  <h2>Cita previa</h2>
+  
+  <h3 style="margin-top: 30px;">Identificación numero: {{ solicitud.id }}</h3>
+  <div class="get-request">
+    
+    <p>{{ solicitud.name }}</p>
+    <p>{{ solicitud.surname }}</p>
+    <p>{{ solicitud.n_document }}</p>
+    <p>{{ solicitud.date }}</p>
+    <p>{{ solicitud.description }}</p>
+  </div>
+
+<h5><a href="{% url 'requests' %}">Atrás</a></h5>
+
+{% endblock %}

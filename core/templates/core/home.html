@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %} {% block content %}
+
+<h2 style="margin: 40px">Gestión</h2>
+<nav class="nav">
+  <h3><a href="{% url 'create_request' %}">Cita previa</a></h3>
+  {% if request.user.is_authenticated %}
+  <h3><a href="{% url 'requests' %}">Pendientes</a></h3>
+  <h3><a href="{% url 'requests' %}">Modificar</a></h3>
+  <h3><a href="{% url 'requests' %}">Cancelar</a></h3>
+  {% else %}
+  <h3><a href="{% url 'login' %}">Modificar Cita</a></h3>
+  <h3><a href="{% url 'login' %}">Cancelar Cita</a></h3>
+  {% endif %}
+</nav>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "core/base.html" %} {% block content %}
+{% block title %}<title>eliminar</title>{% endblock %}
+<h4>
+  Estás seguro de eliminar la solicitud "{{ solicitudes.tipe }}"?
+</h4>
+<div class="form-container">
+<form action="" method="post">
+  {% csrf_token %}
+
+  <input type="submit" value="Eliminar" />
+</form>
+</div>
+<h5><a href="{% url 'requests' %}">Atras</a></h5>
+
+{% endblock %}

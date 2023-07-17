@@ -1,0 +1,30 @@
+{% extends "core/base.html" %} 
+{% block content %}
+{% block title %}<title>Citas</title>{% endblock %}
+  <h2 style="margin-bottom: 10px;">Cita previa</h2>
+  <nav class="nav">
+    <h4><a href="{% url 'create_request' %}">Nueva</a></h4>
+    <h4><a href="{% url 'home'%}">Atrás</a></h4>
+  </nav>
+  <h3 style="margin: 30px 0 30px 0;">Citas pendientes</h3>
+   
+  {% for solicitud in solicitudes %} {% if solicitud %}
+     <div class="requests-container">
+       {% if user.is_staff %}
+         <b>{{ solicitud.name }} {{ solicitud.surname }}</b>
+       {% endif %}
+         <p>{{ solicitud.get_description_display }} {{ solicitud.n_document }}</p>
+     <nav class="nav">
+        <h5><a href="{% url 'request' solicitud.id %}">Abrir</a></h5>
+        <h5><a href="{% url 'update_request' solicitud.id %}">Editar</a></h5>
+        <h5><a href="{% url 'delete_request' solicitud.id %}">Cancelar</a></h5>
+     </nav>
+    </div>
+  
+  {% endif %} {% empty %}
+  <p>No hay solicitudes</p>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
