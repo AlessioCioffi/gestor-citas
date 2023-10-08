@@ -1,4 +1,4 @@
-Instalación
+Instalación:
 
 Clona este repositorio en tu máquina local utilizando Git:
 bash
